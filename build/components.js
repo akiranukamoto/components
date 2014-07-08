@@ -105,11 +105,11 @@ var ngPick = angular.module('components.pick', []).directive('ngPick', function(
       };
 
       scope.hasInputItem = function() {
-         return scope.inputItem !== null;
+         return scope.inputItem;
       };
 
       scope.hasOutputItem = function() {
-         return scope.outputItem !== null;
+         return scope.outputItem;
       };
 
       scope.isFirst = function() {
@@ -233,9 +233,9 @@ var ngPick = angular.module('components.pick', []).directive('ngPick', function(
                tag = tag.replace(scope.varr, 'item');
                td.innerHTML = td.innerHTML.replace(replaced, '{{' + tag + '}}');
             }
-            if (td.childNodes !== null && td.childNodes.length > 0) {
+            if (td.childNodes && td.childNodes.length > 0) {
                for (var i = 0; i < td.childNodes.length; i++) {
-                  if (td.childNodes[i].attributes !==undefined && td.childNodes[i].attributes.length > 0) {
+                  if (td.childNodes[i].attributes && td.childNodes[i].attributes.length > 0) {
                      for (var j = 0; j < td.childNodes[i].attributes.length; j++) {
                         if (td.childNodes[i].attributes[j].name.indexOf('ng-') === 0) {
                            td.childNodes[i].attributes[j].value = td.childNodes[i].attributes[j].value.replace(scope.varr,"item");
@@ -246,7 +246,7 @@ var ngPick = angular.module('components.pick', []).directive('ngPick', function(
             }
             clones.push(td);
          });
-         if (pick.columns === null || pick.columns.length === 0) {
+         if (!pick.columns || pick.columns.length === 0) {
             var td = document.createElement('td');
             td.innerHTML = '{{item}}';
              clones.push(td);
