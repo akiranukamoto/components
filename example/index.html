@@ -1,0 +1,36 @@
+<html ng-app="app">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-route.js"></script>
+		<script src='../build/components.min.js'></script>
+		<script src='app.js'></script>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	</head>
+	<body>
+		<div class="jumbotron">
+			<h1>Componentes UI com AngularJS</h1>
+			<p>Um conjunto de componentes utilizando AngularJS e Bootstrap para agilizar o desenvolvimento de aplicações.</p>
+			<p>
+				<a href="https://github.com/akiranukamoto/components/archive/0.0.1.zip" class="btn btn-primary btn-lg">
+					<i class="glyphicon glyphicon-download"></i>&nbsp;Download
+				</a>
+				<a href="https://github.com/akiranukamoto/components" class="btn btn-default btn-lg">
+					<i class="glyphicon glyphicon-share"></i>&nbsp;GitHub
+				</a>
+
+			</p>
+		</div>
+      <div class="container bs-docs-container">
+         <div class="col-md-2">
+            <a class="btn btn-default" href="#"><span class="glyphicon glyphicon-home"></span>&nbsp;Home</a>
+            <h3 id="btn-dropdowns-dropup">Componentes</h3>
+            <div class="btn-group-vertical">
+               <a class="btn btn-default" href="#pick">ngPick</a>
+            </div>
+         </div>
+         <div class="col-md-10" ng-view>
+         </div>
+      </div>
+	</body>
+</html>

@@ -1,0 +1,209 @@
+<h2>ngPick</h2>
+
+<h3>Parâmetros</h3>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <colgroup>
+        <col class="col-xs-2">
+        <col class="col-xs-2">
+        <col class="col-xs-4">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Parâmetro</th>
+          <th>Default</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>input</code>
+          </td>
+          <td></td>
+          <td>Variavel de entrada, contendo uma lista</td>
+        </tr>
+        <tr>
+          <td>
+            <code>output</code>
+          </td>
+          <td></td>
+          <td>Variavel de saída</td>
+        </tr>
+        <tr>
+          <td>
+            <code>var</code>
+          </td>
+          <td>Vazio</td>
+          <td>Variavel para ser utilizado na declaração das colunas</td>
+        </tr>
+        <tr>
+          <td>
+            <code>input-title</code>
+          </td>
+          <td>Vazio</td>
+          <td>Título da listagem de entrada</td>
+        </tr>
+        <tr>
+          <td>
+            <code>output-title</code>
+          </td>
+          <td>Vazio</td>
+           <td>Título da listagem de saída</td>
+        </tr>
+        <tr>
+          <td>
+            <code>list-height</code>
+          </td>
+          <td>200px</td>
+          <td>Altura das listagens, utilizando valores px, %, ...</td>
+        </tr>
+        <tr>
+          <td>
+            <code>list-width</code>
+          </td>
+          <td>240px</td>
+          <td>Largura das listagens, utilizando valores px, %, ...</td>
+        </tr>
+        <tr>
+          <td>
+            <code>add-all-label</code>
+          </td>
+          <td>Adicionar Todos</td>
+          <td>Label do botão de adicionar todos os items</td>
+        </tr>
+        <tr>
+          <td>
+            <code>remove-all-label</code>
+          </td>
+          <td>Remover Todos</td>
+          <td>Label do botão de remover todos os items</td>
+        </tr>
+        <tr>
+          <td>
+            <code>add-label</code>
+          </td>
+          <td>Adicionar Item</td>
+          <td>Label do botão de adicionar item</td>
+        </tr>
+        <tr>
+          <td>
+            <code>remove-label</code>
+          </td>
+          <td>Remover Item</td>
+          <td>Label do botão de remover item</td>
+        </tr>
+        <tr>
+          <td>
+            <code>first-label</code>
+          </td>
+          <td>Primeiro</td>
+          <td>Label do botão de deslocar item para a primeira posição</td>
+        </tr>
+        <tr>
+          <td>
+            <code>last-label</code>
+          </td>
+          <td>Último</td>
+          <td>Label do botão de deslocar item para a última posição</td>
+        </tr>
+        <tr>
+          <td>
+            <code>up-label</code>
+          </td>
+          <td>Sobe</td>
+          <td>Label do botão de deslocar item para cima</td>
+        </tr>
+        <tr>
+          <td>
+            <code>down-label</code>
+          </td>
+          <td>Desce</td>
+          <td>Label do botão de deslocar item para baixo</td>
+        </tr>
+        <tr>
+          <td>
+            <code>order-control-visible</code>
+          </td>
+          <td>visivel</td>
+          <td>Opção de visualizar menu de ordenação de items</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<hr />
+<h3>Modo Simples</h3>
+
+<p>Utilizando arrays de String.</p>
+<ng-pick input="exemplo_entrada_1" output="exemplo_saida_1" input-title="Entrada" output-title="Saída">
+</ng-pick>
+<pre>
+&lt;ng-pick input="exemplo_entrada_1" output="exemplo_saida_1" input-title="Entrada" output-title="Saída"&gt;
+&lt;/ng-pick&gt;
+</pre>
+<hr />
+<h2>Column</h2>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <colgroup>
+        <col class="col-xs-2">
+        <col class="col-xs-2">
+        <col class="col-xs-4">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Parâmetro</th>
+          <th>Default</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>caption</code>
+          </td>
+          <td>Vazio</td>
+           <td>Título da coluna</td>
+        </tr>
+        <tr>
+          <td>
+            <code>width</code>
+          </td>
+          <td></td>
+          <td>Largura da coluna, utilizando valores px, %, ...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<hr />
+<h3>Array de Objetos</h3>
+<p>Para listar dados de objetos será preciso utilizar o parâmetro <code>var</code> e a tag column.</p>
+<ng-pick input="entrada" output="saida" input-title="JSONs de Entrada" output-title="JSONs de Saída" list-width="300px" var="linha" order-control-visible="false">
+    <column caption="Name">{{linha.name}}</column>
+</ng-pick>
+<pre>
+&lt;ng-pick input="entrada" output="saida" input-title="JSONs de Entrada" output-title="JSONs de Saída" list-width="300px" var="linha" order-control-visible="false"&gt;
+    &lt;column caption="Name"&gt;&#123;<span>&#123;</span>linha.name&#125;&#125;&lt;/column&gt;
+&lt;/ng-pick&gt;
+</pre>
+<hr />
+<h3>Diretivas</h3>
+<p>Através da tag <code>column</code> é possível utilizar diretivas do AngularJS</p>
+<ng-pick input="entrada2" output="saida2" input-title="Diretivas de Entrada" output-title="Diretivas de Saída" list-width="300px" var="linha" add-all-label=">>" remove-all-label="<<" add-label=">" remove-label="<">
+    <column caption="" width="40px"><span class="glyphicon" ng-class="linha.value"></span></column>
+    <column caption="Valor" ><input type="text" name="input" ng-model="linha.name"></input></column>
+</ng-pick>
+<div class="col-md-6">
+  {{entrada2}}
+</div>
+<div class="col-md-6">
+  {{saida2}}
+</div>
+<div class="col-md-12">
+<pre>
+&lt;ng-pick input="entrada2" output="saida2" input-title="Diretivas de Entrada" output-title="Diretivas de Saída" list-width="300px" var="linha" add-all-label="&gt;&gt;" remove-all-label="&lt;&lt;" add-label="&gt;" remove-label="&lt;"&gt;
+    &lt;column caption="" width="40px"&gt;&lt;span class="glyphicon" ng-class="linha.value"&gt;&lt;/span&gt;&lt;/column&gt;
+   &lt;column caption="Valor"&gt;&lt;input type="text" name="input" ng-model="linha.name"&gt;&lt;/input&gt;&lt;/column&gt;
+&lt;/ng-pick&gt;
+</pre>;
+</div>

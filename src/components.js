@@ -1,0 +1,1 @@
+var components = angular.module("components",["components.pick"]);

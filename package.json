@@ -1,0 +1,28 @@
+{
+  "name": "components",
+  "version": "0.0.1",
+  "description": "Conjunto de componentes UI",
+  "main": "src/components.js",
+  "directories": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/akiranukamoto/components.git"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "ui",
+    "components"
+  ],
+  "author": "Wellington Akira Nukamoto",
+  "license": "MIT",
+  "homepage": "https://akiranukamoto.github.io/components/",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+	"grunt-contrib-clean": "~0.4.0",
+	"grunt-contrib-jshint": "~0.8",
+    "grunt-contrib-uglify": "~0.3",
+	"grunt-contrib-concat": "~0.3.0"
+  }
+}
