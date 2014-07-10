@@ -1,1 +1,1 @@
-var components = angular.module("components",["components.pick"]);
+var components = angular.module("components",["components.pick","components.spinner"]);

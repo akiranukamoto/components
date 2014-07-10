@@ -9,14 +9,16 @@ var app = angular.module("app",["ngRoute","components"])
             templateUrl : 'pick.html',
             controller  : 'pickController'
          })
+         .when('/spinner', {
+            templateUrl : 'spinner.html',
+            controller  : 'spinnerController'
+         })
          .otherwise({
             templateUrl : 'init.html',
             controller  : 'initController'
          });
    }).controller('initController', function($scope) {
-      $scope.home = 'false';
    }).controller('pickController', function($scope) {
-      $scope.home = 'false';
       $scope.exemplo_entrada_1 = ['Exemplo 1','Exemplo 2','Exemplo 3','Exemplo 4'];
       $scope.exemplo_saida_1 = [];
       $scope.entrada =[
@@ -49,4 +51,8 @@ var app = angular.module("app",["ngRoute","components"])
                    { id:12, name: 'Star',    value: 'glyphicon-star' }
                ];
       $scope.saida2 =[];
+   }).controller('spinnerController', function($scope) {
+      $scope.spinnerEntrada = 10;
+      $scope.spinnerDecimal = 6;
+      $scope.spinnerPrefix = 1230;
    });
