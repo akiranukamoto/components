@@ -242,13 +242,13 @@ var ngGrid = angular.module('components.grid', []).directive('ngGrid', function(
                '<tr ng-repeat="item in input | orderBy:predicate:reverse | filter:search:strict | gridSlice:firstItem:lastItem" ' +
                   'ng-class="{info:output.indexOf(item) > -1}" row-grid-transclude>' +
             '</tbody>'+
-            '<tfoot>' +
-               '<tr>' +
-                  '<td colspan="3" style="text-align: center;">'+
+            //'<tfoot>' +
+            //   '<tr>' +
+            //      '<td colspan="3" style="text-align: center;">'+
 
-                  '</td>' +
-               '</tr>' +
-            '</tfoot>' +
+            //      '</td>' +
+            //   '</tr>' +
+            //'</tfoot>' +
          '</table>' +
          '<div class="panel-footer">' +
             '<div class="row">' +
@@ -389,11 +389,7 @@ var ngGrid = angular.module('components.grid', []).directive('ngGrid', function(
             }
             clones.push(td);
          });
-         if (!grid.columns || grid.columns.length === 0) {
-            td = document.createElement('td');
-            td.innerHTML = '{{item}}';
-             clones.push(td);
-         }
+
          elm.append(clones);
          $compile(clones)(scope);
       }
