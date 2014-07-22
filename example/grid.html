@@ -1,0 +1,138 @@
+<h2>ngGrid</h2>
+
+<h3>Parâmetros</h3>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <colgroup>
+        <col class="col-xs-2">
+        <col class="col-xs-2">
+        <col class="col-xs-4">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Parâmetro</th>
+          <th>Default</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>input</code>
+          </td>
+          <td></td>
+          <td>Variavel de entrada, contendo uma lista</td>
+        </tr>
+        <tr>
+          <td>
+            <code>output</code>
+          </td>
+          <td></td>
+          <td>Variavel de saída</td>
+        </tr>
+        <tr>
+          <td>
+            <code>var</code>
+          </td>
+          <td>Vazio</td>
+          <td>Variavel para ser utilizado na declaração das colunas</td>
+        </tr>
+        <tr>
+          <td>
+            <code>title</code>
+          </td>
+          <td>Vazio</td>
+          <td>Título da Grid</td>
+        </tr>
+        <tr>
+          <td>
+            <code>rows</code>
+          </td>
+          <td>Vazio</td>
+           <td>Quantidade de linhas exibidas.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<hr />
+<h3>Column</h3>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <colgroup>
+        <col class="col-xs-2">
+        <col class="col-xs-2">
+        <col class="col-xs-4">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Parâmetro</th>
+          <th>Default</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>caption</code>
+          </td>
+          <td>Vazio</td>
+          <td>Título da coluna</td>
+        </tr>
+        <tr>
+          <td>
+            <code>width</code>
+          </td>
+          <td></td>
+          <td>Largura da coluna, utilizando valores px, %, ...</td>
+        </tr>
+        <tr>
+          <td>
+            <code>order</code>
+          </td>
+          <td></td>
+          <td>Ordenação da coluna</td>
+        </tr>
+        <tr>
+          <td>
+            <code>filter</code>
+          </td>
+          <td></td>
+          <td>Filtro da coluna</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<hr />
+<h3>Modo Simples</h3>
+
+<p>Listagem Simples, sem paginação e seleção.</p>
+<ng-grid input="entrada1" var="linha">
+  <column caption="ID" width="100px">{{linha.id}}</column>
+  <column caption="Name" order="name" filter="name" width="200px">{{linha.name}}</column>
+  <column caption="Value" order="value">{{linha.value}}</column>
+</ng-grid>
+<pre>
+&lt;ng-grid input="entrada1" var="linha"&gt;
+  &lt;column caption="ID" width="100px"&gt;<span>{{</span>linha.id}}&lt;/column&gt;
+  &lt;column caption="Name" order="name" filter="name" width="200px"><span>{{</span>linha.name}}&lt;/column&gt;
+  &lt;column caption="Value" order="value"&gt;<span>{{</span>linha.value}}&lt;/column&gt;
+&lt;/ng-grid&gt;
+</pre>
+<hr />
+<h3>Paginação e seleção</h3>
+
+<p>Listagem com paginação e seleção.</p>
+<ng-grid input="entrada2" output="saida2" var="linha" title="Listagem com paginação e seleção" rows="10">
+  <column caption="ID" width="100px">{{linha.id}}</column>
+  <column caption="Name" order="name" filter="name" width="200px">{{linha.name}}</column>
+  <column caption="Value" order="value">{{linha.value}}</column>
+</ng-grid>
+<p>Valor de saída:</p>
+<span>{{saida2}}</span>
+<pre>
+&lt;ng-grid input="entrada2" output="saida2" var="linha" title="Listagem com paginação e seleção" rows="10"&gt;
+  &lt;column caption="ID" width="100px"&gt;<span>{{</span>linha.id}}&lt;/column&gt;
+  &lt;column caption="Name" order="name" filter="name" width="200px"><span>{{</span>linha.name}}&lt;/column&gt;
+  &lt;column caption="Value" order="value"&gt;<span>{{</span>linha.value}}&lt;/column&gt;
+&lt;/ng-grid&gt;
+</pre>

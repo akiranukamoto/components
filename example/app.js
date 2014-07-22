@@ -5,6 +5,10 @@ var app = angular.module("app",["ngRoute","components"])
             templateUrl : 'init.html',
             controller  : 'initController'
          })
+         .when('/grid', {
+            templateUrl : 'grid.html',
+            controller  : 'gridController'
+         })
          .when('/pick', {
             templateUrl : 'pick.html',
             controller  : 'pickController'
@@ -18,6 +22,16 @@ var app = angular.module("app",["ngRoute","components"])
             controller  : 'initController'
          });
    }).controller('initController', function($scope) {
+   }).controller('gridController', function($scope) {
+      $scope.entrada1 =[];
+      for (var i = 1; i <= 10; i++) {
+          $scope.entrada1.push({id: i, name: 'name ' + i, value: 'value value' + i});
+      }
+      $scope.entrada2 =[];
+      $scope.saida2 =[];
+      for (var i = 1; i <= 100; i++) {
+          $scope.entrada2.push({id: i, name: 'name ' + i, value: 'value value' + i});
+      }
    }).controller('pickController', function($scope) {
       $scope.exemplo_entrada_1 = ['Exemplo 1','Exemplo 2','Exemplo 3','Exemplo 4'];
       $scope.exemplo_saida_1 = [];
