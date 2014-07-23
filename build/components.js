@@ -25,7 +25,7 @@ var ngGrid = angular.module('components.grid', []).directive('ngGrid', function(
       rows:"@",
       varr:"@var",
       input:"=",
-      output:"="
+      output:"=",
    },
    link: function(scope,element) {
       scope.index = 1;
@@ -230,8 +230,48 @@ var ngGrid = angular.module('components.grid', []).directive('ngGrid', function(
       scope.$watch('output', function (value) {
          compareArrays(scope.filteredList, value);
       }, true);
-      scope.goPage(1);
 
+
+
+         var resizeFixed = function() {
+            angular.forEach(element.find('tr')[1].childNodes, function(th,key) {
+               element.find('thead')[0].childNodes[0].childNodes[key].style.width = th.offsetWidth + 'px';
+            });
+            scrollFixed();
+         };
+
+         var scrollFixed = function() {
+            var offset = document.body.scrollTop,
+            tableOffsetTop = element.find('table')[0].getBoundingClientRect().top + 20,
+            tableOffsetBottom = tableOffsetTop + element.find('table')[0].offsetHeight - 100;
+
+            if(tableOffsetTop <= 0 && tableOffsetBottom > 0) {
+               element.find('thead')[0].childNodes[0].style.display = '';
+            }
+            else {
+               element.find('thead')[0].childNodes[0].style.display = 'none';
+            }
+         };
+
+         var init = function() {
+            resizeFixed();
+         }();
+
+         scope.$watch(function(){
+            resizeFixed();
+         }, true);
+
+         angular.element(window).bind("resize", function() {
+            scope.$apply();
+            resizeFixed();
+         });
+
+         angular.element(window).bind("scroll", function() {
+            scope.$apply();
+            scrollFixed();
+         });
+
+      scope.goPage(1);
    },
    template:
       '<div class="ng-table panel panel-default">' +
@@ -297,6 +337,7 @@ var ngGrid = angular.module('components.grid', []).directive('ngGrid', function(
          var tr = document.createElement('tr');
          var thFilter = document.createElement('th');
          var trFilter = document.createElement('tr');
+         var trClone;
          if (scope.output) {
             th.innerHTML = '<p><input class="btn text-center" ng-indeterminate="indeterminate" type="checkbox" ng-model="selectedAll" ng-click="toggleSelectionAll((input | filter:search:strict))"></p>';
             th.style.width = '50px';
@@ -340,6 +381,14 @@ var ngGrid = angular.module('components.grid', []).directive('ngGrid', function(
             trFilter.appendChild(thFilter);
             tr.appendChild(th);
          });
+
+         trClone = tr.cloneNode(true);
+         trClone.className = 'scrollHeader';
+         trClone.style.display = 'none';
+         trClone.style.background = 'white';
+         trClone.style.top = '0';
+         trClone.style.position = 'fixed';
+         clones.push(trClone);
          clones.push(tr);
          if (hasFilter) {
             clones.push(trFilter);
