@@ -1,0 +1,105 @@
+<h2>nxLoader</h2>
+
+<h3>Parâmetros</h3>
+<div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <colgroup>
+        <col class="col-xs-2">
+        <col class="col-xs-2">
+        <col class="col-xs-4">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>Parâmetro</th>
+          <th>Default</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <code>var</code>
+          </td>
+          <td></td>
+          <td>Variavel de entrada, valor numérico</td>
+        </tr>
+        <tr>
+          <td>
+            <code>min</code>
+          </td>
+          <td>Sem limite</td>
+          <td>Limite mínimo que o valor chegará</td>
+        </tr>
+        <tr>
+          <td>
+            <code>max</code>
+          </td>
+          <td>Sem limite</td>
+          <td>Limite máximo que o valor chegará</td>
+        </tr>
+        <tr>
+          <td>
+            <code>step</code>
+          </td>
+          <td>1</td>
+          <td>Valor a ser somado/subtraido do valor setado</td>
+        </tr>
+        <tr>
+          <td>
+            <code>prefix</code>
+          </td>
+          <td>Não renderizado</td>
+           <td>String que será exibido antes do valor</td>
+        </tr>
+        <tr>
+          <td>
+            <code>postfix</code>
+          </td>
+          <td>Não renderizado</td>
+          <td>String que será exibido depois do valor</td>
+        </tr>
+        <tr>
+          <td>
+            <code>decimals</code>
+          </td>
+          <td>0</td>
+          <td>Indica a quantidade de casas decimais haverá no valor</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+<hr />
+<h3>Modo Simples</h3>
+
+<div class="row">
+  <div class="col-md-2">
+    <ng-spinner var="spinnerEntrada" />
+  </div>
+</div>
+<br />
+<pre>
+&lt;ng-spinner var="entrada" /&gt;
+</pre>
+<hr />
+<h3>Casas decimais</h3>
+<div class="row">
+  <div class="col-md-2">
+    <ng-spinner var="spinnerDecimal" step="0.2" decimals="2" max="20" min="5"/>
+  </div>
+</div>
+<br />
+<pre>
+&lt;ng-spinner var="decimal" step="0.2" decimals="2" max="20" min="5"/&gt;"
+</pre>
+
+<hr />
+<h3>Prefixo</h3>
+<div class="row">
+  <div class="col-md-4">
+    <ng-spinner var="spinnerPrefix" prefix="$" postfix=".00"/>
+  </div>
+</div>
+<br />
+<pre>
+&lt;ng-spinner var="decimal" step="0.2" decimals="2" max="20" min="5"/&gt;"
+</pre>

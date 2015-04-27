@@ -17,6 +17,10 @@ var app = angular.module("app",["ngRoute","components"])
             templateUrl : 'spinner.html',
             controller  : 'spinnerController'
          })
+         .when('/loader', {
+            templateUrl : 'loader.html',
+            controller  : 'loaderController'
+         })
          .otherwise({
             templateUrl : 'init.html',
             controller  : 'initController'
@@ -66,6 +70,10 @@ var app = angular.module("app",["ngRoute","components"])
                ];
       $scope.saida2 =[];
    }).controller('spinnerController', function($scope) {
+      $scope.spinnerEntrada = 10;
+      $scope.spinnerDecimal = 6;
+      $scope.spinnerPrefix = 1230;
+   }).controller('loaderController', function($scope) {
       $scope.spinnerEntrada = 10;
       $scope.spinnerDecimal = 6;
       $scope.spinnerPrefix = 1230;
